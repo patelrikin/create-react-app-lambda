@@ -1,7 +1,9 @@
 export function handler(event, context, callback) {
-  console.log(event)
+  console.log('event', event);
+  console.log('context', context);
+  console.log('cb', callback);
   callback(null, {
     statusCode: 200,
-    body: Object.assign({}, JSON.stringify({msg: "Hello, World!"}), {"event": JSON.stringify(event)})
+    body: JSON.stringify({msg: "Hello, World!"}))
   })
 }
