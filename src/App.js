@@ -12,13 +12,14 @@ class LambdaDemo extends Component {
     e.preventDefault();
 
     this.setState({loading: true});
-    fetch('/.netlify/functions/hello')
+    fetch(this.url)
       .then(response => response.json())
       .then(json => this.setState({loading: false, msg: json.msg}));
   }
 
-  render() {
+  render(props) {
     const {loading, msg} = this.state;
+    this.url = props.url;
 
     return <p>
       <button onClick={this.handleClick}>{loading ? 'Loading...' : 'Call Lambda'}</button><br/>
@@ -38,7 +39,8 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <LambdaDemo/>
+        <LambdaDemo url="/.netlify/functions/hello"/>
+        <LambdaDemo url="/.netlify/functions/foo"/>
       </div>
     );
   }
