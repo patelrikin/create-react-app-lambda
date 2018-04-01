@@ -19,7 +19,7 @@ class LambdaDemo extends Component {
 
   render(props) {
     const {loading, msg} = this.state;
-    this.url = props.url;
+    this.url = props.url || '';
 
     return <p>
       <button onClick={this.handleClick}>{loading ? 'Loading...' : 'Call Lambda'}</button><br/>
