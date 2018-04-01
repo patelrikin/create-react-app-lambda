@@ -12,7 +12,7 @@ class LambdaDemo extends Component {
     e.preventDefault();
 
     this.setState({loading: true});
-    fetch('/.netlify/functions/foo')
+    fetch('/.netlify/functions/hello')
       .then(response => response.json())
       .then(json => this.setState({loading: false, msg: json.msg}));
   }
@@ -38,7 +38,7 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <LambdaDemo url="/.netlify/functions/foo"/>
+        <LambdaDemo />
       </div>
     );
   }
